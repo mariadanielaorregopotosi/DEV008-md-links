@@ -1,26 +1,53 @@
-<mxfile host="app.diagrams.net" modified="2023-08-16T18:37:43.375Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" etag="4Tc3UQIgJIWHT15pQ1JH" version="21.6.8" type="github">
+<mxfile host="app.diagrams.net" modified="2023-08-17T14:32:16.005Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" etag="aB9LB6U9qgXyho2pYgOh" version="21.6.8" type="github">
   <diagram name="Página-1" id="4lHM6Xq7hKHLsRV2fRWx">
     <mxGraphModel dx="794" dy="456" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="NgpZYHqm8n1mwC7vI-ct-1" value="Inicio&#xa;Obtener el argumento &#39;path&#39; y &#39;options&#39; (ruta y opciones)&#xa;&#xa;&#xa;Resolver la ruta absoluta utilizando path.resolve()&#xa;&#xa;&#xa;&#xa;Sí&#xa;Verificar si la ruta es un archivo o un directorio&#xa;&#xa;si &#xa;Si es un archivo .md&#xa;&#xa;Listar los archivos en el directorio&#xa;&#xa; Leer el contenido del archivo&#xa;&#xa;Filtrar solo los archivos con extensión .md (Markdown)&#xa;&#xa;&#xa; Para cada archivo .md encontrado&#xa;&#xa;si&#xa;Utilizar marked para analizar el contenido y extraer los enlaces&#xa;&#xa;&#xa;&#xa;&#xa; Leer el contenido del archivo&#xa;&#xa;&#39;options.validate&#39; es verdadero&#xa; Utilizar marked para analizar el contenido y extraer los enlaces&#xa;&#xa;&#xa; Para cada enlace en la lista&#xa;&#xa; Almacenar los enlaces en una lista&#xa;&#xa;SI&#xa;sino es ninguna de las dos directorio y archivo&#x9;Si  No&#xa;&#xa; es un archivo ni un directorio válido&#xa;&#xa; Realizar una solicitud HEAD a la URL del enlace utilizando libreria fetch&#xa;&#xa; Emitir un mensaje de error y finalizar el proceso&#xa; &#39;options.validate&#39; es verdadero&#xa;Para cada enlace en la lista&#xa;&#xa;&#xa;&#xa; Guardar el resultado de la validación (status y ok) en el objeto de enlace correspondiente&#xa;&#xa; Realizar una solicitud HEAD a la URL del enlace utilizando libreria fetch&#xa;&#xa;&#xa;Guardar el resultado de la validación (status y ok) en el objeto de enlace correspondiente&#xa;&#xa;Retornar la lista de enlaces (objetos) como resultado de la promesa&#xa;|&#xa;&#xa;&#xa;&#xa;FIN" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="500" y="160" width="510" height="960" as="geometry" />
+        <mxCell id="NgpZYHqm8n1mwC7vI-ct-1" value="Inicio&#xa;Obtener el argumento &#39;path&#39; y &#39;options&#39; (ruta y opciones)&#xa;&#xa;&#xa;Resolver la ruta absoluta utilizando path.resolve()&#xa;&#xa;&#xa;&#xa;Sí&#xa;Verificar si la ruta es un archivo o un directorio&#xa;&#xa;si &#xa;Si es un archivo .md&#xa;&#xa;Listar los archivos en el directorio&#xa;&#xa; Leer el contenido del archivo&#xa;&#xa;Filtrar solo los archivos con extensión .md (Markdown)&#xa;&#xa;&#xa; Para cada archivo .md encontrado&#xa;&#xa;si&#xa;Utilizar marked para analizar el contenido y extraer los enlaces&#xa;&#xa;&#xa;&#xa;&#xa; Leer el contenido del archivo&#xa;&#xa;&#39;options.validate&#39; es verdadero&#xa; Utilizar marked para analizar el contenido y extraer los enlaces&#xa;&#xa;&#xa; Para cada enlace en la lista&#xa;&#xa; Almacenar los enlaces en una lista&#xa;&#xa;SI&#xa;sino es ninguna de las dos directorio y archivo&#x9;Si  No&#xa;&#xa; es un archivo ni un directorio válido&#xa;&#xa; Realizar una solicitud HEAD a la URL del enlace utilizando libreria fetch&#xa;&#xa; Emitir un mensaje de error y finalizar el proceso&#xa; &#39;options.validate&#39; es verdadero&#xa;Para cada enlace en la lista&#xa;&#xa;&#xa;&#xa; Guardar el resultado de la validación (status y ok) en el objeto de enlace correspondiente&#xa;&#xa; Realizar una solicitud HEAD a la URL del enlace utilizando libreria fetch&#xa;&#xa;&#xa;Guardar el resultado de la validación (status y ok) en el objeto de enlace correspondiente&#xa;&#xa;Retornar la lista de enlaces (objetos) como resultado de la promesa&#xa;|&#xa;&#xa;&#xa;&#xa;FIN" style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="900" y="160" width="510" height="960" as="geometry" />
         </mxCell>
-        <mxCell id="NgpZYHqm8n1mwC7vI-ct-3" value="Inicio" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="150" y="80" width="120" height="60" as="geometry" />
+        <mxCell id="NgpZYHqm8n1mwC7vI-ct-3" value="Inicio" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="520" y="105" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="NgpZYHqm8n1mwC7vI-ct-4" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="NgpZYHqm8n1mwC7vI-ct-3">
+        <mxCell id="NgpZYHqm8n1mwC7vI-ct-4" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="NgpZYHqm8n1mwC7vI-ct-3" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="300" y="250" as="sourcePoint" />
-            <mxPoint x="210" y="240" as="targetPoint" />
+            <mxPoint x="670" y="275" as="sourcePoint" />
+            <mxPoint x="580" y="265" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="210" y="210" />
+              <mxPoint x="580" y="235" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="NgpZYHqm8n1mwC7vI-ct-5" value="Obtener el argumento &#39;path&#39; y &#39;options&#39; (ruta y opciones)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="150" y="240" width="120" height="60" as="geometry" />
+        <mxCell id="NgpZYHqm8n1mwC7vI-ct-5" value="Obtener el argumento &#39;path&#39; y &#39;options&#39; (ruta y opciones)" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="520" y="265" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="z6-1w9oTDMndl8qMJz4w-1" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="NgpZYHqm8n1mwC7vI-ct-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="750" y="285" as="sourcePoint" />
+            <mxPoint x="580" y="385" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z6-1w9oTDMndl8qMJz4w-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="z6-1w9oTDMndl8qMJz4w-3" target="z6-1w9oTDMndl8qMJz4w-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="505" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z6-1w9oTDMndl8qMJz4w-3" value="Resolver la ruta absoluta utilizando path.resolve()" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="385" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="z6-1w9oTDMndl8qMJz4w-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="z6-1w9oTDMndl8qMJz4w-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="430" y="545" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z6-1w9oTDMndl8qMJz4w-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="z6-1w9oTDMndl8qMJz4w-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="720" y="545" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z6-1w9oTDMndl8qMJz4w-5" value="Verificar si la ruta es un archivo o un directorio" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="540" y="505" width="80" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
