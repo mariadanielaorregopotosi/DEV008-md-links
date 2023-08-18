@@ -1,6 +1,7 @@
 {
   "name": "mariadaniela-md-links",
   "version": "0.1.0",
+  "type": "commonjs",
   "engines": {
     "node": ">=16.x"
   },
@@ -26,5 +27,13 @@
   "bugs": {
     "url": "https://github.com/mariadanielaorregopotosi/DEV008-md-links/issues"
   },
-  "homepage": "https://github.com/mariadanielaorregopotosi/DEV008-md-links#readme"
+  "homepage": "https://github.com/mariadanielaorregopotosi/DEV008-md-links#readme",
+  "dependencies": {
+    "-": "^0.0.1",
+    "axios": "^1.4.0",
+    "chalk": "^5.3.0",
+    "extractor": "^0.1.2",
+    "link": "^1.5.1",
+    "markdown": "^0.5.0"
+  }
 }
