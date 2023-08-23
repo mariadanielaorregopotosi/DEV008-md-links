@@ -5,26 +5,34 @@ const markdownLinkExtractor = require('markdown-link-extractor');
 // Función para verificar los enlaces en un archivo Markdown
 function checkLinks(filePath) {
   const markdownContent = fs.readFileSync(filePath, 'utf-8');
+  console.log('Markdown Content:', markdownContent);
   const links = markdownLinkExtractor(markdownContent);
+  console.log('Links:', links); 
 console.log (checkLinks);
   const brokenLinks = [];
   const validLinks = [];
 
-  links.forEach(link => {
-    if (link.href.startsWith('http')) {
-      // Simular una verificación real de enlaces HTTP
-      // Aquí podria usar axios o fetch para verificar si el enlace es válido
-      validLinks.push(link);
-    } else {
-      brokenLinks.push(link);
-    }
-  });
+  links.forEach(index, links => {
+    for (let index = 0; index < links.length; index++) {
+      const link = links[index];
+      const anchor = anchor[index];
 
+    if (links.href.startsWith('http')) {
+      validarEnlace(links);
+      validLinks.push({ links, anchor: anchor[index] });
+      // Aquí podria usar axios o fetch para verificar si el enlace es válido
+
+    } else {
+      brokenLinks.push({ link, links, anchor: anchor[index] });
+    }
+  }
+  });
+ 
   return { validLinks, brokenLinks };
 }
 
 // Carpeta donde se encuentran los archivos Markdown
-const markdownFolder = 'C:\\Users\\CORE I5\\OneDrive\\Documentos\\Proyectos Laboratoria\\MDLink\\DEV008-md-links\\README2.md';
+const markdownFolder ='C:\\Users\\CORE I5\\OneDrive\\Documentos\\Proyectos Laboratoria\\MDLink\\DEV008-md-links\\evidence';
 
 // Leer los archivos Markdown en la carpeta
 fs.readdir(markdownFolder, (err, files) => {
