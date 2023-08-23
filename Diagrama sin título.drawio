@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-08-23T04:35:16.216Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" etag="H-rk7fcXeFxUDGaXb97f" version="21.6.8" type="github">
+<mxfile host="app.diagrams.net" modified="2023-08-23T14:47:27.035Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" etag="SkE-j9Crjx7dV8iMJ-TH" version="21.6.8" type="github">
   <diagram name="Página-1" id="4lHM6Xq7hKHLsRV2fRWx">
-    <mxGraphModel dx="1621" dy="422" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1621" dy="456" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -21,6 +21,9 @@
             <mxPoint x="580.0000000000005" y="325" as="sourcePoint" />
             <mxPoint x="580" y="385" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="70OC47QyTWk0muCmlC1V-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="z6-1w9oTDMndl8qMJz4w-3" target="g7hAbbZlqH0Fw6mCQiyA-1">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="z6-1w9oTDMndl8qMJz4w-3" value="Resolver la ruta absoluta utilizando path.resolve()" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="530" y="460" width="120" height="60" as="geometry" />
@@ -296,10 +299,13 @@
         <mxCell id="z6-1w9oTDMndl8qMJz4w-78" value="--validate" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-110" y="360" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="z6-1w9oTDMndl8qMJz4w-83" value="si no" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="z6-1w9oTDMndl8qMJz4w-80" edge="1" target="z6-1w9oTDMndl8qMJz4w-84">
+        <mxCell id="z6-1w9oTDMndl8qMJz4w-83" value="si no" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="z6-1w9oTDMndl8qMJz4w-80" target="z6-1w9oTDMndl8qMJz4w-84" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="750" y="345" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="70OC47QyTWk0muCmlC1V-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="z6-1w9oTDMndl8qMJz4w-80" target="z6-1w9oTDMndl8qMJz4w-3">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="z6-1w9oTDMndl8qMJz4w-80" value="verificar si la ruta existe" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="530" y="385" width="120" height="60" as="geometry" />
@@ -353,8 +359,44 @@
         <mxCell id="z6-1w9oTDMndl8qMJz4w-72" value="Obtener el argumento &#39;path&#39; y &#39;options&#39; (ruta y opciones)" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="520" y="200" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="g7hAbbZlqH0Fw6mCQiyA-1" value="La ruta es absoluta o relativa" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="70OC47QyTWk0muCmlC1V-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="g7hAbbZlqH0Fw6mCQiyA-1" target="z6-1w9oTDMndl8qMJz4w-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="70OC47QyTWk0muCmlC1V-4" value="si" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="g7hAbbZlqH0Fw6mCQiyA-1" target="70OC47QyTWk0muCmlC1V-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="490" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="70OC47QyTWk0muCmlC1V-7" value="si" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="g7hAbbZlqH0Fw6mCQiyA-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="720" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="g7hAbbZlqH0Fw6mCQiyA-1" value="La ruta es absoluta o relativa" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="530" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="70OC47QyTWk0muCmlC1V-6" value="pasa a" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.354;entryY=-0.008;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="70OC47QyTWk0muCmlC1V-5" target="z6-1w9oTDMndl8qMJz4w-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="410" y="600" />
+              <mxPoint x="410" y="610" />
+              <mxPoint x="578" y="610" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="70OC47QyTWk0muCmlC1V-5" value="es relativa se convierte a absoluta" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="354" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="70OC47QyTWk0muCmlC1V-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="70OC47QyTWk0muCmlC1V-8" target="z6-1w9oTDMndl8qMJz4w-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="780" y="610" />
+              <mxPoint x="610" y="610" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="70OC47QyTWk0muCmlC1V-8" value="si es absoluta pasa averificacion&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="540" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
