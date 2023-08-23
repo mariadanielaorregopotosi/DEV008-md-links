@@ -6,14 +6,14 @@ const markdownLinkExtractor = require('markdown-link-extractor');
 function checkLinks(filePath) {
   const markdownContent = fs.readFileSync(filePath, 'utf-8');
   const links = markdownLinkExtractor(markdownContent);
-
+console.log (checkLinks);
   const brokenLinks = [];
   const validLinks = [];
 
   links.forEach(link => {
     if (link.href.startsWith('http')) {
       // Simular una verificación real de enlaces HTTP
-      // Aquí podrías usar axios o fetch para verificar si el enlace es válido
+      // Aquí podria usar axios o fetch para verificar si el enlace es válido
       validLinks.push(link);
     } else {
       brokenLinks.push(link);
@@ -24,7 +24,7 @@ function checkLinks(filePath) {
 }
 
 // Carpeta donde se encuentran los archivos Markdown
-const markdownFolder = 'ruta/a/tu/carpeta';
+const markdownFolder = 'C:\\Users\\CORE I5\\OneDrive\\Documentos\\Proyectos Laboratoria\\MDLink\\DEV008-md-links\\README2.md';
 
 // Leer los archivos Markdown en la carpeta
 fs.readdir(markdownFolder, (err, files) => {
