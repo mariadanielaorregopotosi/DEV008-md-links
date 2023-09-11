@@ -1,100 +1,69 @@
 const fs = require('fs');
 const path = require('path');
 const markdownLinkExtractor = require('markdown-link-extractor');
-const axios = require('axios');
+// const axios = require('axios');
+// const { extractLinks } = require('./mdLinksUtilsh');
+// const { validateLinks } = require('./mdLinksValidator');
 
+// Funciones de utilidad
 function esRutaAbsoluta(ruta) {
   return path.isAbsolute(ruta);
 }
 
-const rutaRelativa = 'MDLink/DEV008-md-links/evidence/README2.md';
-let rutaAbsoluta;
-
-if (esRutaAbsoluta(rutaRelativa)) {
-  rutaAbsoluta = rutaRelativa;
-} else {
-  rutaAbsoluta = path.resolve(rutaRelativa);
+function siExisteRuta(ruta) {
+  return fs.existsSync(ruta);
 }
 
-console.log('Ruta relativa:', rutaRelativa);
-console.log('Ruta absoluta:', rutaAbsoluta);
+function convertirAbsoluta(ruta) {
+  return path.resolve(ruta);
+}
+function readFile(filePath) {
+  return new Promise((resolve, reject) => {
+    fs.readFile(filePath, 'utf-8', (err, data) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(data);
+      }
+    });
+  });
+}
 
-// Carpeta donde se encuentran los archivos Markdown
-const markdownFolder ='C:\\Users\\CORE I5\\OneDrive\\Documentos\\Proyectos Laboratoria\\MDLink\\DEV008-md-links\\evidence';
+function markdownExtractor(filePath) {
+  return readFile(filePath, { encoding: 'utf8' }).then((data) => {
+    const links = markdownLinkExtractor(data);
+    return links || [];
+  });
+}
 
-// Función para verificar los enlaces en un archivo Markdown
-function checkLinks(filePath) {
-  const markdownContent = fs.readFileSync(filePath, 'utf-8');
-  const linkData = markdownLinkExtractor(markdownContent);
-
-  if (!linkData || !Array.isArray(linkData.links)) {
-    return Promise.reject('La estructura de datos devuelta por markdownLinkExtractor no es válida.');
-  }
-
-  const { links } = linkData;
-  const brokenLinks = [];
-  const validLinks = [];
-
-  const checkLink = (link) => {
-    return axios.get(link)
-      .then(response => {
-        if (response.status === 200) {
-          validLinks.push(link);
-        } else {
-          brokenLinks.push(link);
-        }
-      })
-      .catch(error => {
-        brokenLinks.push(link);
-        console.log(error);
-      });
-  };
-
-  const linkPromises = links
-    .filter(link => link.startsWith('http'))
-    .map(link => checkLink(link));
-
-  return Promise.all(linkPromises)
-    .then(() => {
-      return { validLinks, brokenLinks };
+function makeGetRequestToFile(filePath) {
+  return readFile(filePath, { encoding: 'utf8' })
+    .then((data) => {
+      const httpLinks = data.match(/https?:\/\/[^\s]+/g) || [];
+      return httpLinks;
     });
 }
 
+// Función principal mdLinks
+function mdLinks(filePath, options = { validate: false }) {
+  return new Promise((resolve, reject) => {
+    if (!filePath || typeof options !== 'object') {
+      reject(new Error('Argumentos inválidos'));
+      return;
+    }
 
-
-// Leer los archivos Markdown en la carpeta
-fs.readdir(markdownFolder, (err, files) => {
-  if (err) {
-    console.error('Error al leer la carpeta:', err);
-    return;
-  }
-
-  const report = {
-    totalFiles: files.length,
-    totalBrokenLinks: 0,
-    totalValidLinks: 0,
-  };
-
-  files.forEach(file => {
-    const filePath = path.join(markdownFolder, file);
-    checkLinks(filePath)
-      .then(({ validLinks, brokenLinks }) => {
-        report.totalBrokenLinks += brokenLinks.length;
-        report.totalValidLinks += validLinks.length;
-
-        console.log(`Archivo: ${file}`);
-        console.log(`- Enlaces válidos: ${validLinks.length}`);
-        console.log(`- Enlaces rotos: ${brokenLinks.length}`);
-      })
-      .catch(error => {
-        console.error(`Error al verificar los enlaces en el archivo ${file}: ${error}`);
-      });
+    markdownExtractor(filePath)
+  .then((result) => {
+    const links = result.links;
+    console.log('Enlaces extraídos:', links); // Agrega esta línea
+    if (options.validate) {
+      return validateLinks(links);
+    } else {
+      return links.map((link) => ({ href: link, text: '', file: filePath }));
+    }
+  })
+  // ...
   });
+};
 
-  console.log('\nResumen del informe:');
-  console.log(`- Total de archivos analizados: ${report.totalFiles}`);
-  console.log(`- Total de enlaces válidos: ${report.totalValidLinks}`);
-  console.log(`- Total de enlaces rotos: ${report.totalBrokenLinks}`);
-});
-
-module.exports = { checkLinks };
+module.exports = { mdLinks, esRutaAbsoluta, siExisteRuta, convertirAbsoluta, makeGetRequestToFile };
