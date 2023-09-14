@@ -1,8 +1,13 @@
-const functions = require("./function-example");
+const functions = require("./function-example.js");
 
-function mdLinks(ruta, opstions) {
+function mdLinksPromess(ruta, options = { validate: false }) {
   return new Promise((resolve, reject) => {
-    //     reject('hoy es martes')
+    if (!ruta || typeof options !== "object") {
+      // Devolver una promesa rechazada con un error específico
+      reject(new Error("Argumentos inválidos"));
+      return;
+    }
+
     if (functions.siExisteRuta(ruta)) {
       let rutaAbsoluta;
 
@@ -11,37 +16,30 @@ function mdLinks(ruta, opstions) {
       } else {
         rutaAbsoluta = functions.convertirAbsoluta(ruta);
       }
-      // resolve(rutaAbsoluta);
-      functions
-        .mdLinks(rutaAbsoluta)
-        .then((respuesta) => {
-          resolve(respuesta);
+
+      functions.markdownExtractor(rutaAbsoluta)
+        .then((result) => {
+          const links = result && result.links; // Verifica si result.links no es undefined
+
+          if (options.validate) {
+            functions.validateLinks(links)
+              .then((validatedLinks) => {
+                resolve(validatedLinks); // Resuelve la promesa con los enlaces validados
+              })
+              .catch((error) => {
+                reject(error); // Rechaza la promesa en caso de error en las solicitudes HTTP
+              });
+          } else {
+            resolve(links); // Resuelve la promesa con los enlaces
+          }
         })
         .catch((error) => {
-          reject(error);
+          reject(error); // Rechaza la promesa en caso de error
         });
     } else {
       reject("la ruta no existe");
     }
   });
 }
-// console.log(rutaCarpeta)
-// mdLinks(rutaCarpeta, (err, report) => {
-//   if (err) {
-//     console.error('Error:', err);
-//     return;
-//   }
-
-//   console.log('Informe:', report);
-// });
-//usar una promesa grande no atraves de callback si no una promesa grande
-const rutaCarpeta = "C:\\Users\\CORE I5\\OneDrive\\Documentos\\Proyectos Laboratoria\\MDLink\\DEV008-md-links\\evidence\\README2.md";
-mdLinks(rutaCarpeta)
-  .then((respuesta) => {
-    console.log("correcto");
-    console.log(respuesta);
-  })
-  .catch((error) => {
-    console.log("error");
-    console.log(error);
-  });
+mdLinksPromess("C:\\Users\\CORE I5\\OneDrive\\Documentos\\Proyectos Laboratoria\\MDLink\\DEV008-md-links\\evidence\\README2.md", 
+{ validate: false });
