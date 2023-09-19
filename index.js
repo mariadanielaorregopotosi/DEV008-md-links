@@ -19,18 +19,19 @@ function mdLinksPromess(ruta, options = { validate: false }) {
 
       functions.markdownExtractor(rutaAbsoluta)
         .then((result) => {
-          const links = result && result.links; // Verifica si result.links no es undefined
-
+          // console.log(result);
+          
           if (options.validate) {
-            functions.validateLinks(links)
+            functions.validateLinks(result)
               .then((validatedLinks) => {
+                console.log(validatedLinks)
                 resolve(validatedLinks); // Resuelve la promesa con los enlaces validados
               })
               .catch((error) => {
                 reject(error); // Rechaza la promesa en caso de error en las solicitudes HTTP
               });
           } else {
-            resolve(links); // Resuelve la promesa con los enlaces
+            resolve(result); // Resuelve la promesa con los enlaces
           }
         })
         .catch((error) => {
@@ -42,4 +43,17 @@ function mdLinksPromess(ruta, options = { validate: false }) {
   });
 }
 mdLinksPromess("C:\\Users\\CORE I5\\OneDrive\\Documentos\\Proyectos Laboratoria\\MDLink\\DEV008-md-links\\evidence\\README2.md", 
-{ validate: false });
+{ validate: true })
+.then((result) => {
+  console.log("Enlaces validados:");
+  result.forEach((link) => {
+    console.log(`- Href: ${link.href}`);
+    console.log(`  Text: ${link.text}`);
+    console.log(`  Status: ${link.status}`);
+    console.log(`  Ok: ${link.ok}`);
+    console.log("------------------------------------");
+});
+})
+.catch((error) => {
+  console.error(error);
+});

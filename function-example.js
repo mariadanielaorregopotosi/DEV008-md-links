@@ -43,8 +43,8 @@ function markdownExtractor(ruta) {
           href,
           text,
           file: ruta,
-          status: 'unknown',
-          ok: 'unknown',
+          // status: 'unknown',
+          // ok: 'unknown',
         });
       }
 
@@ -63,29 +63,28 @@ function markdownExtractor(ruta) {
 }
 
 function validateLinks(links) {
-  console.log(validateLinks);
-  const linkPromises = links.map((link) => {
-    return axios
-      .head(link.href) // Realiza una solicitud HEAD para verificar el estado
-      .then((response) => {
-        console.log(`Validando enlace: ${link.href}, Estado: ${response.status}`);
-        link.status = response.status; // Almacena el código de estado en el objeto de enlace
-        link.ok = response.status >= 200 && response.status < 400; // Establece el estado "ok" en función del código de estado
-        return link; // Devuelve el objeto de enlace actualizado
-      })
-      .catch((error) => {
-        console.error(`Error al validar enlace: ${link.href}, Error: ${error.message}`);
-        // Resto del código...
-        // Si hubo un error en la solicitud, maneja el error aquí (por ejemplo, puedes establecer el estado en "error")
-        link.status = 'error';
-        link.ok = false;
-        return link; // Devuelve el objeto de enlace actualizado
-      });
+ 
+  let nuevosLink = []
+  links.forEach((link)=> {
+  //   nuevosLink = [...nuevosLink, fetch(link.href)];
+    nuevosLink.push( fetch(link.href).then((response)=>{
+      return{
+        status:response.status,
+        ok:response.status >= 200 && response.status < 400,
+        ...link,
+      }
+
+    }).catch((error)=>{
+      reject(error)
+      return{
+        status: 500,
+        ok:false,
+        ...link,
+      }
+    }));
   });
-
-  // Retorna una promesa que se resolverá cuando todas las solicitudes se completen
-  return Promise.all(linkPromises);
-}
-
+   return Promise.all(nuevosLink); // Retorna una promesa resuelta con un arreglo vacío si links es undefined
+  };
+  
 
 module.exports = { markdownExtractor, esRutaAbsoluta, siExisteRuta, convertirAbsoluta, validateLinks};
